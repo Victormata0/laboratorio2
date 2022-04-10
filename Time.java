@@ -45,6 +45,10 @@ class Time {
      {
          return "[Modo de lavado: "+ tipoWash +" tiempo=" + tiempoLavado + "]";
      }
+
+   
+
+    
     
   
 }

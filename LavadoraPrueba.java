@@ -3,6 +3,9 @@ package washingsimulator;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 import java.util.Iterator;
 import java.util.Scanner;
@@ -10,13 +13,17 @@ import java.util.Scanner;
 
 
 public class LavadoraPrueba{
+    static ArrayList<Persona> clientes=new ArrayList<Persona>();
     
     public static void main(String[] args) throws IOException{
         //Redefinimos el valor de Scanner, en este caso será con la variable sc
         //Hecho por Merari
         //String busqueda;
+        Persona ch;
+        ch= new ClienteNuevo();
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         Time t[]= new Time[3];
+        clientes.add(new ClienteHabitual("Merari","Perdomo",ch.getTipoCliente()) );
         t[0]= new Time("30 min","smooth");
         t[1]= new Time("45 min", "potencia maxima");
         t[2]= new Time("1 hr", "centrifugado intensivo activado");
@@ -28,9 +35,11 @@ public class LavadoraPrueba{
         String detergente = null;
         
         int p=0;
-        Cliente c1=new Cliente();
-        c1.iniciar();
+        
+        
         while(p<=0){
+            
+            conseguirDatos();
             System.out.println("****Bienvenido a tu confiable lavadora****");
             System.out.println("-------------------------");
             System.out.println("¿Qué acción deseas realizar hoy?");
@@ -89,12 +98,21 @@ public class LavadoraPrueba{
                     WashingSimulator e= new WashingSimulator(kilos, tipoRopa, t);
                     e.CicloFinal();
                     System.out.println("El detergente usado fue: "+d.tipoDetergente);
+                    
+                    
                     p=1;
+                    
                     break;
                 }
 
                 case 5 -> { 
                     System.out.println("¡Gracias por preferirnos!");
+                    
+//                    System.out.println("Clientes: \n");
+//                    Comparador comparador = new Comparar();
+//                    clientes.sort((Comparator<Persona>) comparador);
+//                    clientes.sort((Comparator<Persona>) new Comparar());
+//                    clientes.forEach(System.out::println);
                     p=1;
                     break;
                 }
@@ -102,10 +120,9 @@ public class LavadoraPrueba{
                     System.out.println("Escriba un valor valido");
                     break;
                 }
+                
             }
-            
         }
-        
     }
     public static int busquedaBinaria(String[] tRopa, String busqueda)
         {
@@ -140,7 +157,46 @@ public class LavadoraPrueba{
         return -1;
     
     }
+    
+    public static void conseguirDatos() throws IOException {
+        Scanner sc=new Scanner(System.in);
+        
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        System.out.print("Bienvenido al sistema de lavado virtual \n");
+        System.out.print("Elija una opción: \n");
+        System.out.print("1. Cliente habitual \n 2. Cliente Nuevo \n");
+        int tipoCliente= sc.nextInt();
+        if(tipoCliente==1){
+            Persona ch = new ClienteHabitual();
+            System.out.print("Introduzca su nombre: ");
+            ch.setNombre(br.readLine());
+
+            System.out.print("Introduzca su apellido: ");
+            ch.setApellidos(br.readLine());
+            ch.imprimir();
+            clientes.add(new ClienteHabitual(ch.getNombre(),ch.getApellidos(),ch.getTipoCliente()));
+            
+        } else if(tipoCliente==2){
+            Persona ch;
+            ch= new ClienteNuevo();
+            System.out.print("Introduzca su nombre: ");
+            ch.setNombre(br.readLine());
+
+            System.out.print("Introduzca su apellido: ");
+            ch.setApellidos(br.readLine());
+            ch.imprimir();
+            clientes.add(new ClienteNuevo(ch.getNombre(),ch.getApellidos(),ch.getTipoCliente()));
+//            Persona w[] = new Persona[j];
+//            
+//            w[0]= new ClienteHabitual (ch.getNombre(),ch.getApellidos(),ch.getTipoCliente());
+            
+          
+        }
+        
+      
+    }
 }
+        
 
 
     
