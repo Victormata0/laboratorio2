@@ -1,34 +1,28 @@
-
 package washingsimulator;
-
 import java.util.Scanner;
-
 import java.util.Arrays;
-
 public class Detergente {
-    //Inicialización de variables y arreglos
-    //Victor
+//Inicialización de variables y arreglos
    String tipoDetergente;
    public Detergente(String detergente){
         this.tipoDetergente=detergente;
     }
     Scanner sc=new Scanner(System.in);
-    
     String det[];
     int cantidadArreglo;
-   //Merari 
+   
+//Métodos 
+    //Muestra los arreglos ordenados y desordenados
    public void arreglos()
    {
        arreglo_detergente();
         System.out.println("Arreglo desordenado: " + Arrays.toString(det));
         burbuja(det);
         System.out.println("Arreglo ordenado: "+ Arrays.toString(det)); 
-        tipoDetergente=Arrays.toString(det);
-        
-       
+        tipoDetergente=Arrays.toString(det);  
    }
+    //Raliza el ordenamiento burbuja
      private static void burbuja(String[] det) {
-         
         for (int x = 0; x < det.length; x++) {
             for (int y = 0; y < det.length - 1; y++) {
                 String elementoActual = det[y],
@@ -42,7 +36,6 @@ public class Detergente {
         }
     }
      //Definimos el método para guardar el arreglo de detergente
-     //victor
    public void arreglo_detergente()
     {
         System.out.println("Dígite la cantidad de tipos detergente que desea añadir a su lista: ");

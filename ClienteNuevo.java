@@ -1,31 +1,22 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package washingsimulator;
+//@Autor: Merari A. Perdomo
 
-/**
- *
- * @author Merari Angélica
- */
 public class ClienteNuevo extends Persona  {
     // Constructores
-
     public ClienteNuevo () {
         super();
         setTipoCliente("Cliente Nuevo");
     } 
-    // Métodos
+    // Métodos usados
+    //Llama al constuctor de la superclase, este método 
+    //se utiliza para mandar a traer los nombres y el tipo de cliente según corresponda
     ClienteNuevo(String nombre, String apellidos, String tipoCliente){
         super(nombre,apellidos,tipoCliente);  //Llama al constuctor de la superclase
     }
-    
-    
+    //Método sobreescrito usado para imprimir datos
+    @Override
     public void imprimir() {
         System.out.println ("Datos del cliente. Nombre: " + getNombre() + " " + getApellidos() + " Tipo: "+getTipoCliente());  
     }
-    
-
-    
 }
     

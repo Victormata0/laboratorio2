@@ -25,13 +25,9 @@ public class WashingSimulator extends Time{
     //realizado por victor
     String tipoRopa[]={"ropa blanca", "ropa colorida", "jeans"};
     //Arreglo de objetos
-    //public Time tiempoL[];
-   
     Time[] tiempo;
-
     List<String> lista = new ArrayList<>(Arrays.asList(tipoRopa));
     int n=0;
-    
     Scanner sc=new Scanner(System.in);
 
     WashingSimulator(int kilos, int tipoRopa, Time[] t) {
@@ -72,7 +68,7 @@ public class WashingSimulator extends Time{
 //Se cambio de if a switch, para tener más presentes los parametros a evaluar
             //Victor
             switch (typeClothe) {
-                case 1: 
+                case 1 -> { 
                     System.out.println("El tipo de ropa elegido es: "+ tipoRopa[0]);
                     System.out.println("");
                     i= tiempo[0];
@@ -80,9 +76,9 @@ public class WashingSimulator extends Time{
                     System.out.println("");
                     System.out.println("Lavando...");
                     completeWash=1;
-                break;
+                }
 
-                case 2: 
+                case 2 -> { 
                     System.out.println("El tipo de ropa elegido es: "+ tipoRopa[1]);
                     System.out.println("");
                     i= tiempo[1];
@@ -90,19 +86,18 @@ public class WashingSimulator extends Time{
                     System.out.println("");
                     System.out.println("Lavando...");
                     completeWash=1;
-                break;
+                }
     
-                case 3: 
+                case 3 -> { 
                     System.out.println("El tipo de ropa elegido es: "+ tipoRopa[2]);
                     System.out.println("");
                     i= tiempo[2];
                     System.out.println(tiempo[2]);
                     System.out.println("");
                     System.out.println("Lavando...");
-                    completeWash=1; 
-                break;
-                //Realiza el ingreso de datos por medio de la variable x
-                case 4:
+                    completeWash=1;
+                }
+                case 4 -> {
                     System.out.println("Ingrese el tipo de ropa que desea usar: ");
                     String x= sc.nextLine();
                     System.out.println("Lista arreglo inicial: \n"+ lista);
@@ -113,9 +108,9 @@ public class WashingSimulator extends Time{
                     System.out.println("El tipo de ropa elegido es: "+ x);
                     System.out.println("Modo lavado rápido activado");
                     System.out.println("Lavando...");
-                    completeWash=1; 
-                break;
-                case 5: 
+                    completeWash=1;
+                }
+                case 5 -> { 
                     System.out.println("Ingrese el tipo de ropa que desea eliminar: ");
                     String deleted= sc.nextLine();
                     lista.remove(deleted);
@@ -125,9 +120,10 @@ public class WashingSimulator extends Time{
                         System.out.println(it.next());
                     }
                     completeWash=0;
-                break;
+                }
             }
-        }
+            //Realiza el ingreso de datos por medio de la variable x
+                    }
     }
     
     //Inicialización de método secado 
@@ -164,8 +160,5 @@ public class WashingSimulator extends Time{
     {
         this.typeClothe= typeClothe;
     }
-
-
-    
 }
 
