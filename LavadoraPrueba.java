@@ -12,13 +12,11 @@ public class LavadoraPrueba{
         //Definición de variables y arreglos
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         Scanner sc=new Scanner(System.in);
-        //Comparador comparador = new Comparar();
-        
         String detergente = null;
         int p=0;
-        
         Time t[]= new Time[3];
         String tRopa[]={"ropa blanca", "ropa colorida", "jeans"};
+        
         
         //Arreglos para los tipos de lavado
         t[0]= new Time("30 min","smooth");
@@ -128,8 +126,6 @@ public class LavadoraPrueba{
                     izquierda = indiceDelElementoDelMedio + 1;
                 }
             }
-    // Si no se rompió el ciclo ni se regresó el índice, entonces el elemento no
-    // existe
         return -1;
     } 
     
@@ -163,8 +159,6 @@ public class LavadoraPrueba{
                             System.out.println("Ingrese un valor valido");
                             LavadoraPrueba.main(null);
                     }
-                }
-    //            Persona w[] = new Persona[j];
-//            w[0]= new ClienteHabitual (ch.getNombre(),ch.getApellidos(),ch.getTipoCliente());         
+                } 
     }
 }
